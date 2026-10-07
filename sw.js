@@ -1,7 +1,7 @@
-const CACHE_NAME = 'kutuphanem-shell-v3';
+const CACHE_NAME = 'kutuphanem-shell-v4';
 const APP_SHELL = ['/', '/index.html', '/manifest.webmanifest'];
 // Vite yapılandırması derleme sonunda bütün uygulama dosyalarını buraya ekler.
-const BUILD_ASSETS = ["/index-COU5GUv2.css","/index-_AxKWq8o.js","/local-store-Bsy_AkW-.js","/logo.png","/nav-settings.png","/nav-shelf.png","/nav-stats.png","/gizlilik.html","/hesap-silme.html","/manifest.webmanifest"];
+const BUILD_ASSETS = ["/assets/index-COU5GUv2.css","/assets/index-DpBb58ch.js","/assets/local-store-DjtdSnTd.js","/assets/logo.png","/assets/nav-settings.png","/assets/nav-shelf.png","/assets/nav-stats.png","/gizlilik.html","/hesap-silme.html","/manifest.webmanifest"];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll([...APP_SHELL, ...BUILD_ASSETS])));
@@ -27,7 +27,7 @@ self.addEventListener('fetch', event => {
   }
 
   // Derleme dosyaları kurulumda önbelleğe alınır; çalışma sırasında yeni sürüm dosyaları da saklanır.
-  if (url.pathname.startsWith('/') || url.pathname.startsWith('/src/')) {
+  if (url.pathname.startsWith('/assets/') || url.pathname.startsWith('/src/')) {
     event.respondWith(caches.match(request).then(cached => cached || fetch(request).then(response => {
       if (response.ok) caches.open(CACHE_NAME).then(cache => cache.put(request, response.clone()));
       return response;
