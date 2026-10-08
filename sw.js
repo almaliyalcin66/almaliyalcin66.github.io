@@ -1,7 +1,7 @@
 const CACHE_NAME = 'kutuphanem-shell-v5';
 const APP_SHELL = ['/', '/index.html', '/manifest.webmanifest'];
 // Vite yapılandırması derleme sonunda bütün uygulama dosyalarını buraya ekler.
-const BUILD_ASSETS = ["/assets/index-B34MABMC.css","/assets/index-CqlTG1s0.js","/assets/local-store-CZjAger6.js","/assets/logo.png","/assets/nav-settings.png","/assets/nav-shelf.png","/assets/nav-stats.png","/covers/karamazov-kardesler.jpg","/gizlilik.html","/hesap-silme.html","/manifest.webmanifest"];
+const BUILD_ASSETS = ["/assets/index-B34MABMC.css","/assets/index-Dc7oILvX.js","/assets/local-store-CZjAger6.js","/assets/logo.png","/assets/nav-settings.png","/assets/nav-shelf.png","/assets/nav-stats.png","/covers/karamazov-kardesler.jpg","/gizlilik.html","/hesap-silme.html","/manifest.webmanifest"];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll([...APP_SHELL, ...BUILD_ASSETS])));
